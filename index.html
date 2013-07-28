@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Chrome-extension-redirector by bendavis78</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/bendavis78/chrome-extension-redirector">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/bendavis78/chrome-extension-redirector/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/bendavis78/chrome-extension-redirector/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Chrome-extension-redirector</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/bendavis78">bendavis78</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="redirector-for-chrome" class="anchor" href="#redirector-for-chrome"><span class="octicon octicon-link"></span></a>Redirector for Chrome</h1>
+
+<p>This simple extension allows you to redirect urls using the power of regular
+expressions. To add a redirect, go to chrome://extensions, and click on
+"Options" next to the Redirector extension. From the options page you can
+add new redirects, and view/delete existing ones.</p>
+
+<p>For example, you can have all mobile Wikipedia urls to open in desktop mode
+(this is convered in the tutorial below).</p>
+
+<p>You could also redirect to non-browser schemes to launch external apps. For
+example,If you want youtube links to open in a desktop video app (such as
+minitube), you can redirect all youtube urls with a "youtube:" prefix, and then
+set up a scheme handler on your OS to pass youtube: urls to your player.</p>
+
+<hr><h3>
+<a name="tutorial" class="anchor" href="#tutorial"><span class="octicon octicon-link"></span></a>Tutorial</h3>
+
+<p>Sometimes people send you links to the mobile version of a website.
+You're on your desktop, and you'd rather see the desktop version.
+For example, a mobile Wikipedia url looks like this:</p>
+
+<pre><code>http://en.m.wikipedia.org/wiki/Regular_expression
+</code></pre>
+
+<p>To set up a redirect for mobile Wikipedia urls, enter the following:</p>
+
+<pre><code>From: ^http://(.*?)\.m\.wikipedia\.org/(.*)
+To: http://$1.wikipedia.org/$2
+</code></pre>
+
+<p>Here's a breakdown of the FROM pattern if you're not familiar with regular
+expressions. When we say "matches", that means the redirect will only trigger if
+a match occurs.</p>
+
+<table>
+<thead><tr>
+<th>Regex</th>
+<th>Effect</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>starts matching at the beginning of the url</td>
+</tr>
+<tr>
+<td>http://</td>
+<td>matches "http://"</td>
+</tr>
+<tr>
+<td>(.*).</td>
+<td>matches zero or more characters until the next dot and captures it as group $1</td>
+</tr>
+<tr>
+<td>m.wikipedia.org/</td>
+<td>matches "m.wikipedia.org/"</td>
+</tr>
+<tr>
+<td>(.*)</td>
+<td>matches the reset of the url and captures it in group 2</td>
+</tr>
+</tbody>
+</table><p>If the URL matches, group $1 will contain the "en" part of the domain, and group
+$2 will contain everything after the domain name. So the resulting redirect url
+in our example will become:</p>
+
+<pre><code>http://en.wikipedia.org/wiki/Regular_expression
+</code></pre>
+
+<p>To learn more about regular expressions, try the interactive tutorial at
+<a href="http://regexone.com/" title="RegexOne">RegexOne.com</a>. </p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
