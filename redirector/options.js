@@ -45,6 +45,22 @@ function remove() {
   alert('Redirect removed.');
 }
 
+function editHolder(fromInput, toInput) {
+  return function edit() {
+    redirects = getRedirects();
+    if (!redirects) {
+      storageUpdate();
+      return;
+    }
+    var from = redirects[this.value][0];
+    var to = redirects[this.value][1];
+    redirects[this.value][0] = fromInput.val();
+    redirects[this.value][1] = toInput.val();
+    setRedirects(redirects);
+    alert('Redirect edited.');
+  }
+}
+
 function alert(msg, type) {
   var $alert = $('#alert');
   var timeout;
@@ -71,7 +87,10 @@ function storageUpdate() {
 function tmpl(id, context) {
   var tmpl = $('#'+id).html()
   for (var v in context) {
-    tmpl = tmpl.replace('{{'+v+'}}', context[v]);
+    var pattern = '{{'+v+'}}';
+    while(tmpl.match(new RegExp(pattern))) {
+      tmpl = tmpl.replace(pattern, context[v]);
+    }
   }
   return $(tmpl);
 }
@@ -82,7 +101,12 @@ function addToTable(id, from, to) {
     'from': from,
     'to': to
   });
+      
   $row.find('button.remove').on('click', remove);
+  $row.find('button.edit').on('click', editHolder(
+      $row.find('input.from'),
+      $row.find('input.to'))
+  );
   $row.appendTo($('#redirects table tbody'));
 }
 
