@@ -51,7 +51,13 @@
       <div id="redirects">
         <h3>My Redirects</h3>
         <table class="table table-striped">
-          <thead><tr><th>From</th><th>To</th><th width="80">&nbsp;</th></thead>
+          <thead>
+              <tr>
+                  <th>From</th>
+                  <th>To</th>
+                  <th width="80">&nbsp;</th>
+                  <th width="80">&nbsp;</th>
+            </thead>
           <tbody></tbody>
         </table>
       </div>
@@ -62,10 +68,13 @@
   <script src="options.js"></script>
   <script id="table_row_tpl" type="text/x-javascript-tmpl">
     <tr>
-      <td>{{from}}</td>
-      <td>{{to}}</td>
+      <td><input class="from" type="text" value="{{from}}"/></td>
+      <td><input class="to" type="text" value="{{to}}"/></td>
       <td>
         <button class="remove" value="{{id}}"><i class="icon-remove"></i> Delete</button>
+      </td>
+      <td>
+        <button class="edit" value="{{id}}"><i class="icon-edit"></i> Edit</button>
       </td>
     </tr>
   </script>

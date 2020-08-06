@@ -1,6 +1,6 @@
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
-    var redirects, pattern, from, to, redirecUrl;
+    var redirects, pattern, from, to, redirectUrl;
     redirects = JSON.parse(localStorage.getItem('redirects') || '[]');
     for (var i=0; i<redirects.length; i++) {
       from = redirects[i][0];
