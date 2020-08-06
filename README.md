@@ -39,7 +39,7 @@ a match occurs.
 | http://            | matches "http://"                                       |
 | (.*)\.             | matches zero or more characters until the next dot and captures it as group $1 |
 | m\.wikipedia\.org/ | matches "m.wikipedia.org/"                              |
-| (.*)               | matches the reset of the url and captures it in group 2 |
+| (.*)               | matches the rest of the url and captures it in group 2 |
 
 If the URL matches, group $1 will contain the "en" part of the domain, and group
 $2 will contain everything after the domain name. So the resulting redirect url
