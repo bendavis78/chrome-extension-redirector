@@ -7,7 +7,7 @@ expressions. To add a redirect, go to chrome://extensions, and click on
 add new redirects, and view/delete existing ones.
 
 For example, you can have all mobile Wikipedia urls to open in desktop mode
-(this is convered in the tutorial below).
+(this is covered in the tutorial below).
 
 You could also redirect to non-browser schemes to launch external apps. For
 example,If you want youtube links to open in a desktop video app (such as
