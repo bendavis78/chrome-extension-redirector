@@ -26,23 +26,23 @@ For example, a mobile Wikipedia url looks like this:
 
 To set up a redirect for mobile Wikipedia urls, enter the following:
 
-    From: ^http://(.*?)\.m\.wikipedia\.org/(.*)
-    To: http://$1.wikipedia.org/$2
+- From: `^http://(.*?)\.m\.wikipedia\.org/(.*)`
+- To: `http://$1.wikipedia.org/$2`
 
 Here's a breakdown of the FROM pattern if you're not familiar with regular
 expressions. When we say "matches", that means the redirect will only trigger if
 a match occurs.
 
-| Regex              | Effect                                       
-| -----------------  | ------------------------------------------------------- |
-| ^                  | starts matching at the beginning of the url             |
-| http://            | matches "http://"                                       |
-| (.*)\.             | matches zero or more characters until the next dot and captures it as group $1 |
-| m\.wikipedia\.org/ | matches "m.wikipedia.org/"                              |
-| (.*)               | matches the rest of the url and captures it in group 2 |
+| Regex                | Effect                                       
+| -------------------- | ------------------------------------------------------- |
+| `^`                  | starts matching at the beginning of the url             |
+| `http://`            | matches "http://"                                       |
+| `(.*?)\.`            | matches zero or more characters until the next dot and captures it as group $1 |
+| `m\.wikipedia\.org/` | matches "m.wikipedia.org/"                              |
+| `(.*)`               | matches the rest of the url and captures it in group 2 |
 
-If the URL matches, group $1 will contain the "en" part of the domain, and group
-$2 will contain everything after the domain name. So the resulting redirect url
+If the URL matches, group `$1` will contain the "en" part of the domain, and group
+`$2` will contain everything after the domain name. So the resulting redirect url
 in our example will become:
 
     http://en.wikipedia.org/wiki/Regular_expression
