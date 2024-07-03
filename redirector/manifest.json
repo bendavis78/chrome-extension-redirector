@@ -10,5 +10,5 @@
     "webRequest",
     "webRequestBlocking"
   ],
-  "content_security_policy": "script-src 'self' https://*.googleapis.com https://*.bootstrapcdn.com; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://netdna.bootstrapcdn.com; object-src 'self'"
 }
